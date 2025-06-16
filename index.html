@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>정확한 위치 보기</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=카카오맵_앱_키&libraries=services"></script>
+</head>
+<body>
+	<header>
+		<h1>Live Location Tracker</h1>
+		<div class="mode-toggle">
+			<button onclick="switchMode('gps')">GPS 모드</button>
+			<button onclick="switchMode('ip')">IP 모드</button>
+		</div>
+	</header>
+
+	<main>
+		<div id="gpsContainer">
+			<div id="Button_Only">
+				<button id="MyLcButton" onclick="showMyLocation()">내 위치 가져오기</button>
+			</div>
+			<p id="loading" style="display:none;">위치를 불러오는 중입니다...</p>
+			<p id="locationInfo">현재 위치: 알 수 없음</p>
+			<p id="update">업데이트 시간: 없음</p>
+		</div>
+
+		<div id="ipInputContainer" style="display:none;">
+			<input type="text" id="ipInput" placeholder="IP 주소 입력" />
+			<button onclick="showIPLocation()">IP로 위치 확인</button>
+			<p id="ipLocationInfo">IP 위치: 알 수 없음</p>
+		</div>
+
+		<p id="mapGuide">지도에서 마커를 확인하세요. 확대/이동이 가능합니다.</p>
+		<div id="map"></div>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>
